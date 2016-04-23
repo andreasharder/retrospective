@@ -1,0 +1,11 @@
+# Dependency directory
+node_modules
+
+#JS files (auto generated with TS transpiler)
+app/**/*.js
+app/**/*.map
+
+# Logs
+npm-debug.log*
+
+.DS_Store
