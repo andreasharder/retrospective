@@ -7,9 +7,10 @@ import {Router} from 'angular2/router';
 })
 
 export class Registration {
-    constructor(public router: Router) {}
+    constructor(private _router: Router) {}
 
     createBoard(event: Event, name: string){
         event.preventDefault();
+        this._router.navigate(['RetroBoard']);
     }
 }
