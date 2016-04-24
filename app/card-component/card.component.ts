@@ -1,4 +1,5 @@
 import {Component, Input} from 'angular2/core';
+import {RetroService, Message} from '../retro.service';
 
 @Component({
 	selector: 'message-card',
@@ -6,6 +7,6 @@ import {Component, Input} from 'angular2/core';
 })
 
 export class MessageCardComponent {
-	@Input() message: string;
+	@Input() message: Message;
 	@Input() color: string;
 }

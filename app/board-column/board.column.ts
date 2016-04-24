@@ -1,5 +1,5 @@
 import {Component, Input} from 'angular2/core';
-import {RetroService} from '../retro.service';
+import {RetroService, Message} from '../retro.service';
 import {MessageCardComponent} from '../card-component/card.component';
 
 @Component({
@@ -9,14 +9,20 @@ import {MessageCardComponent} from '../card-component/card.component';
 })
 
 export class BoardColumn{
-	public messages: string[]= [];
 	@Input() title: string;
 	@Input() icon: string;
 	@Input() color: string;
+	public msgText:string;
+	public messages: Message[] = [];
 
 	constructor(private _retroService: RetroService) {}
 
-	addMessage(msg: string){
+	addMessage(){
+		var msg: Message = {
+			text : this.msgText
+		};
+
 		this.messages.push(msg);
+		this.msgText = "";
 	}
 }

@@ -13,3 +13,7 @@ export class RetroService {
 		return this._topic;
 	}
 }
+
+export interface Message{
+	text:string;
+}
