@@ -1,10 +1,12 @@
-<h4>{{topic}}</h4>
+<h4>{{retroService.getTopic()}}</h4>
 <div class="row">
     <form class="col s12">
         <div class="row">
-            <board-column icon="mood" title="What went well?" color="green"></board-column>
-            <board-column icon="mood_bad" title="What can be improved?" color="red"></board-column>
-            <board-column icon="whatshot" title="New actions!" color="yellow"></board-column>
+            <ul>
+                <li *ngFor="#column of retroService.getColumns()">
+                    <board-column [column]="column"></board-column>
+                </li>
+            </ul>
         </div>
     </form>
 </div>

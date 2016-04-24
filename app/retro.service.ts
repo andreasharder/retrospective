@@ -9,11 +9,29 @@ export class RetroService {
 		this._topic = topic;
 	}
 
-	public getTopic():String{
+	public getTopic(): String{
 		return this._topic;
+	}
+
+	public getColumns(): BoardColumn[]{
+		return COLUMNS;
 	}
 }
 
 export interface Message{
 	text:string;
 }
+
+export interface BoardColumn{
+	key:string;
+	icon:string;
+	title:string;
+	color:string;
+	messages: Message[];
+}
+
+export var COLUMNS : BoardColumn[] = [
+	{ key: "1", icon : "mood", title: "What went well?", color: "green", messages: []},
+	{ key: "2", icon : "mood_bad", title: "What can be improved?", color: "red", messages: []},
+	{ key: "3", icon : "whatshot", title: "Actions", color: "yellow", messages: []}
+];

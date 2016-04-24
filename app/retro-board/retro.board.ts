@@ -1,19 +1,13 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {RetroService} from '../retro.service';
-import {BoardColumn} from '../board-column/board.column';
+import {BoardColumnComponent} from '../board-column/board.column';
 
 @Component({
 	selector: 'retro-board',
 	templateUrl: './app/retro-board/retro.board.html',
-	directives: [BoardColumn]
+	directives: [BoardColumnComponent]
 })
 
-export class RetroBoard implements OnInit{
-	public topic:String;
-
-	constructor(private _retroService: RetroService) {}
-
-	ngOnInit(){
-		this.topic = this._retroService.getTopic();
-	}
+export class RetroBoard{
+	constructor(public retroService: RetroService) {}
 }
