@@ -1,0 +1,10 @@
+<div class="input-field col s12 m6 l4">
+	<i class="material-icons prefix">{{icon}}</i>
+	<input #issue id="icon_issue" type="text" class="validate" (keyup.enter)="addMessage(issue.value)">
+	<label for="icon_issue">{{title}}</label>
+	<ul>
+		<li *ngFor="#msg of messages">
+			<message-card [message]="msg" [color]=color></message-card>
+		</li>
+	</ul>
+</div>

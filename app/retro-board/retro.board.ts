@@ -1,24 +1,19 @@
 import {Component, OnInit} from 'angular2/core';
 import {RetroService} from '../retro.service';
-import {MessageCardComponent} from '../card-component/card.component';
+import {BoardColumn} from '../board-column/board.column';
 
 @Component({
 	selector: 'retro-board',
 	templateUrl: './app/retro-board/retro.board.html',
-	directives: [MessageCardComponent]
+	directives: [BoardColumn]
 })
 
 export class RetroBoard implements OnInit{
-	public messages: string[]= [];
 	public topic:String;
 
 	constructor(private _retroService: RetroService) {}
 
 	ngOnInit(){
 		this.topic = this._retroService.getTopic();
-	}
-
-	addMessage(msg: string){
-		this.messages.push(msg);
 	}
 }

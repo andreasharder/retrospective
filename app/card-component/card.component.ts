@@ -6,5 +6,6 @@ import {Component, Input} from 'angular2/core';
 })
 
 export class MessageCardComponent {
-	@Input() message;
+	@Input() message: string;
+	@Input() color: string;
 }
