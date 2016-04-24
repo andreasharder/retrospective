@@ -1,22 +1,27 @@
 <h4>{{topic}}</h4>
 <div class="row">
-  <form class="col s12">
-	<div class="row">
-	  <div class="input-field col s4">
-		<i class="material-icons prefix">mood</i>
-		<input #good id="icon_good" type="text" class="validate" (keyup.enter)="values=good.value">
-		<label for="icon_good">What went well?</label>
-	  </div>
-	  <div class="input-field col s4">
-		<i class="material-icons prefix">mood_bad</i>
-		<input #bad id="icon_bad" type="text" class="validate" (keyup.enter)="values=bad.value">
-		<label for="icon_bad">What can be improved?</label>
-	  </div>
-	  <div class="input-field col s4">
-		<i class="material-icons prefix">whatshot</i>
-		<input #action id="icon_action" type="text" class="validate" (keyup.enter)="values=action.value">
-		<label for="icon_action">New actions!</label>
-	  </div>
-	</div>
-  </form>
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s12 m6 l4">
+                <i class="material-icons prefix">mood</i>
+                <input #good id="icon_good" type="text" (keyup.enter)="addMessage(good.value)">
+                <label for="icon_good">What went well?</label>
+                <ul>
+                    <li *ngFor="#msg of messages">
+                        <message-card [message]="msg"></message-card>
+                    </li>
+                </ul>
+        </div>
+        <div class="input-field col s12 m6 l4">
+            <i class="material-icons prefix">mood_bad</i>
+            <input #bad id="icon_bad" type="text" class="validate" (keyup.enter)="values=bad.value">
+            <label for="icon_bad">What can be improved?</label>
+        </div>
+        <div class="input-field col s12 m6 l4">
+            <i class="material-icons prefix">whatshot</i>
+            <input #action id="icon_action" type="text" class="validate" (keyup.enter)="values=action.value">
+            <label for="icon_action">New actions!</label>
+        </div>
+    </div>
+</form>
 </div>
