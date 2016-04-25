@@ -10,7 +10,6 @@ describe('RetroService', () => {
 
 	it('should return topic', () => {
 		service.setTopic("testTopic");
-
 		expect(service.getTopic()).toBe("testTopic");
 	});
 
@@ -18,7 +17,6 @@ describe('RetroService', () => {
 		var key = "1";
 		var msgText = "testMsg";
 		service.addMessage(msgText, key);
-
 		expect(service.getMessages(key)).toEqual([{ text: msgText}]);
 	})
 });
