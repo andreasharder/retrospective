@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
 import {Router} from 'angular2/router';
-import {RetroService} from '../retro.service';
+import {RetroService} from '../services/retro.service';
 
 @Component({
     selector: 'registration',

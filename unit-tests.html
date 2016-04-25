@@ -20,8 +20,7 @@
     });
     // #3. Import the spec file explicitly
 	Promise.all([
-		System.import('app/hero.spec'),
-		System.import('app/speaker-card-component/speaker.card.component.spec')
+		System.import('app/services/retro.service.spec'),
 	])
       // #4. wait for all imports to load ...
       //     then re-execute `window.onload` which

@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {RetroService} from '../retro.service';
+import {RetroService} from '../services/retro.service';
 import {BoardColumnComponent} from '../board-column/board.column';
 
 @Component({
