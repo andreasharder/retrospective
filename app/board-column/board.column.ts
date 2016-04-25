@@ -15,17 +15,13 @@ export class BoardColumnComponent{
 	constructor(public retroService: RetroService) {}
 
 	addMessage(){
-		var msg: Message = {
-			text : this.msgText
-		};
-
 		if(this.column.messages.length < 5){
-			this.column.messages.push(msg);
+			this.retroService.addMessage(this.msgText, this.column.key);
 		}
 		this.msgText = "";
 	}
 
 	getMessages():Message[]{
-		return this.column.messages;
+		return this.retroService.getMessages(this.column.key);
 	}
 }

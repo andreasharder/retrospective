@@ -16,6 +16,28 @@ export class RetroService {
 	public getColumns(): BoardColumn[]{
 		return COLUMNS;
 	}
+
+	public getMessages(key : string): Message[]{
+		var column = this._getColumnByKey(key);
+		return column.messages;
+	}
+
+	public addMessage(msgText: string, key: string){
+		var column = this._getColumnByKey(key);
+		var msg: Message = {
+			text : msgText
+		};
+		column.messages.push(msg);
+	}
+
+	private _getColumnByKey(key: string){
+		var column = COLUMNS.find((c, i) => {
+			if(c.key === key){
+				return true;
+			}
+		});
+		return column;
+	}
 }
 
 export interface Message{
