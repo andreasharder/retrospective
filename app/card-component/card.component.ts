@@ -9,4 +9,11 @@ import {RetroService, Message} from '../services/retro.service';
 export class MessageCardComponent {
 	@Input() message: Message;
 	@Input() color: string;
+	@Input() columnKey: string;
+
+	constructor(public retroService: RetroService){}
+
+	public deleteMessage(event: Event){
+		this.retroService.removeMessage(this.message, this.columnKey);
+	}
 }

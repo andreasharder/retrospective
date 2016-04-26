@@ -4,7 +4,7 @@
 	<label for="icon_issue">{{column.title}}</label>
 	<ul>
 		<li *ngFor="#msg of getMessages()">
-			<message-card [message]="msg" [color]=column.color></message-card>
+			<message-card [message]="msg" [color]=column.color [columnKey]=column.key></message-card>
 		</li>
 	</ul>
 </div>

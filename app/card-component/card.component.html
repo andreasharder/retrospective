@@ -2,6 +2,9 @@
 	<div class="col s12">
 		<div class="card-panel {{color}} lighten-5">
 			<span class="text">{{message.text}}</span>
+			<div class="right-align">
+				<a class="waves-effect waves-teal btn-flat" (click)="deleteMessage($event)">Delete</a>
+			</div>
 		</div>
 	</div>
 </div>

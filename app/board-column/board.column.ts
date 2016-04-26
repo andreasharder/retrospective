@@ -15,9 +15,7 @@ export class BoardColumnComponent{
 	constructor(public retroService: RetroService) {}
 
 	addMessage(){
-		if(this.column.messages.length < 5){
-			this.retroService.addMessage(this.msgText, this.column.key);
-		}
+		this.retroService.addMessage(this.msgText, this.column.key);
 		this.msgText = "";
 	}
 

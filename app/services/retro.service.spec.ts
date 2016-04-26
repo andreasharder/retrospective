@@ -19,4 +19,14 @@ describe('RetroService', () => {
 		service.addMessage(msgText, key);
 		expect(service.getMessages(key)).toEqual([{ text: msgText}]);
 	})
+
+	it('should add maximum five messages to board', () => {
+		var key = "1";
+		var msgText = "testMsg";
+
+		for(let i = 0; i < 10; i++){
+			service.addMessage(msgText, key);
+		}
+		expect(service.getMessages(key).length).toEqual(5);
+	})
 });

@@ -25,9 +25,21 @@ export class RetroService {
 	public addMessage(msgText: string, key: string){
 		var column = this._getColumnByKey(key);
 		var msg: Message = {
-			text : msgText
+			text : msgText,
+			key: Date.now()
 		};
-		column.messages.push(msg);
+		if(column.messages.length < MAX_NUMBER){
+			column.messages.push(msg);
+		}
+	}
+
+	public removeMessage(msg: Message, key: string){
+		var column = this._getColumnByKey(key);
+
+		var index = column.messages.indexOf(msg);
+		if(index >= 0){
+			column.messages.splice(index, 1);
+		}
 	}
 
 	private _getColumnByKey(key: string){
@@ -42,6 +54,7 @@ export class RetroService {
 
 export interface Message{
 	text:string;
+	key: number;
 }
 
 export interface BoardColumn{
@@ -51,6 +64,8 @@ export interface BoardColumn{
 	color:string;
 	messages: Message[];
 }
+
+const MAX_NUMBER  = 5;
 
 export var COLUMNS : BoardColumn[] = [
 	{ key: "1", icon : "mood", title: "What went well?", color: "green", messages: []},
