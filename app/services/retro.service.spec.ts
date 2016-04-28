@@ -13,14 +13,7 @@ describe('RetroService', () => {
 		expect(service.getTopic()).toBe("testTopic");
 	});
 
-	it('should return messages from board', () => {
-		var key = "1";
-		var msgText = "testMsg";
-		service.addMessage(msgText, key);
-		expect(service.getMessages(key)).toEqual([{ text: msgText}]);
-	})
-
-	it('should add maximum five messages to board', () => {
+	it('should return maximum five messages from board', () => {
 		var key = "1";
 		var msgText = "testMsg";
 

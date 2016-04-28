@@ -28,7 +28,7 @@ export class RetroService {
 			text : msgText,
 			key: Date.now()
 		};
-		if(column.messages.length < MAX_NUMBER){
+		if(column.messages.length < MESSAGES_PER_USER){
 			column.messages.push(msg);
 		}
 	}
@@ -43,8 +43,8 @@ export class RetroService {
 	}
 
 	private _getColumnByKey(key: string){
-		var column = COLUMNS.find((c, i) => {
-			if(c.key === key){
+		var column = COLUMNS.find((col, index) => {
+			if(col.key === key){
 				return true;
 			}
 		});
@@ -65,7 +65,7 @@ export interface BoardColumn{
 	messages: Message[];
 }
 
-const MAX_NUMBER  = 5;
+const MESSAGES_PER_USER  = 5;
 
 export var COLUMNS : BoardColumn[] = [
 	{ key: "1", icon : "mood", title: "What went well?", color: "green", messages: []},
