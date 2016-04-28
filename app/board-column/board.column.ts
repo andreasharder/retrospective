@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, OnInit} from 'angular2/core';
 import {RetroService, Message, BoardColumn} from '../services/retro.service';
 import {MessageCardComponent} from '../card-component/card.component';
 
@@ -8,7 +8,7 @@ import {MessageCardComponent} from '../card-component/card.component';
 	directives: [MessageCardComponent]
 })
 
-export class BoardColumnComponent{
+export class BoardColumnComponent implements OnInit{
 	@Input() column: BoardColumn;
 	public msgText:string;
 
@@ -21,5 +21,9 @@ export class BoardColumnComponent{
 
 	getMessages():Message[]{
 		return this.retroService.getMessages(this.column.key);
+	}
+
+	ngOnInit(){
+		
 	}
 }

@@ -3,6 +3,7 @@ import { Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angula
 import { Registration} from '../registration/registration';
 import { RetroBoard} from '../retro-board/retro.board';
 import {RetroService} from '../services/retro.service';
+import {UtilService} from '../services/util.service';
 
 
 @Component({
@@ -11,7 +12,8 @@ import {RetroService} from '../services/retro.service';
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS,
-        RetroService
+        RetroService,
+        UtilService
     ]
 })
 @RouteConfig([
@@ -21,7 +23,7 @@ import {RetroService} from '../services/retro.service';
         component: Registration
     },
     {
-        path: '/retro-board',
+        path: '/board/:id',
         name: 'RetroBoard',
         component: RetroBoard
     }
