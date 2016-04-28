@@ -2,6 +2,7 @@ import {Injectable} from 'angular2/core';
 
 @Injectable()
 export class UtilService{
+
 	public getNewBoardId():string{
 
 		var text = "";
@@ -12,5 +13,10 @@ export class UtilService{
         }
 
         return text;
+	}
+
+	public getBoardId():string{
+		var split = window.location.pathname.split("/");
+		return split[2];
 	}
 }
