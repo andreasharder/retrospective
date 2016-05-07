@@ -3,7 +3,7 @@ import { Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angula
 import { Registration} from '../registration/registration';
 import { RetroBoard} from '../retro-board/retro.board';
 import {RetroService} from '../services/retro.service';
-import {UtilService} from '../services/util.service';
+import {UtilService} from '../services/util/util.service';
 
 
 @Component({
