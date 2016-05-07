@@ -20,7 +20,7 @@ export class RetroService {
 	}
 
 	public getMessages(key : string): Message[]{
-		return this._getMessagedByColumn(key);
+		return this._getMessagesByColumn(key);
 	}
 
 	public addMessage(msgText: string, key: string){
@@ -32,7 +32,7 @@ export class RetroService {
 	}
 
 	public removeMessage(msg: Message, key: string){
-		var messages = this._getMessagedByColumn(key);
+		var messages = MESSAGES;
 
 		var index = messages.indexOf(msg);
 		if(index >= 0){
@@ -40,7 +40,7 @@ export class RetroService {
 		}
 	}
 	
-	private _getMessagedByColumn(key: string){
+	private _getMessagesByColumn(key: string){
 		var messages = MESSAGES.filter((msg, index) => {
 			if(msg.column === key){
 				return true;
