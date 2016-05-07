@@ -10,7 +10,7 @@ describe('RetroService', () => {
 
 	it('should return topic', () => {
 		service.addBoard("testTopic", "1bfj");
-		expect(service.getTopic()).toBe("testTopic");
+		expect(service.getTopic("1bfj")).toBe("testTopic");
 	});
 
 	it('should return message from board', () => {

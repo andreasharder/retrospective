@@ -1,9 +1,9 @@
-import {Component, OnInit} from 'angular2/core';
+import { Component, OnInit } from 'angular2/core';
 import { Router, RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import { Registration} from '../registration/registration';
-import { RetroBoard} from '../retro-board/retro.board';
-import {RetroService} from '../services/retro/retro.service';
-import {UtilService} from '../services/util/util.service';
+import { RetroBoard } from '../retro-board/retro.board';
+import { RetroService } from '../services/retro/retro.service';
+import { UtilService } from '../services/util/util.service';
 
 
 @Component({

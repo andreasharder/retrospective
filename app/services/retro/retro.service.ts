@@ -11,17 +11,8 @@ export class RetroService {
 		BOARDS.push(board);
 	}
 	
-	public getBoard(id: string): Board {
-		var board = BOARDS.find((brd, index) => {
-			if(brd.id === id){
-				return true;
-			}
-		});		
-		return board;
-	}
-
-	public getTopic(): String{
-		return BOARDS[0].topic;
+	public getTopic(id: string): String{
+		return this._getBoardById(id).topic;
 	}
 
 	public getColumns(): BoardColumn[]{
@@ -56,6 +47,15 @@ export class RetroService {
 			}
 		});
 		return messages;
+	}
+	
+	private _getBoardById(id: string): Board {
+		var board = BOARDS.find((brd, index) => {
+			if(brd.id === id){
+				return true;
+			}
+		});		
+		return board;
 	}
 }
 
