@@ -11,12 +11,11 @@ import {UtilService} from '../services/util/util.service';
 export class Registration {
     constructor(private _router: Router, private _retroService: RetroService, private _util: UtilService) {}
 
-    createBoard(event: Event, name: string){
+    createBoard(event: Event, topic: string){
         event.preventDefault();
         
-        this._retroService.setTopic(name);
         var boardId = this._util.getNewBoardId();
-
+        this._retroService.addBoard(topic, boardId);       
         this._router.navigate(['RetroBoard', { id:  boardId}]);
     }
 }

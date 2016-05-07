@@ -2,15 +2,26 @@ import {Injectable} from 'angular2/core';
 
 @Injectable()
 export class RetroService {
-
-	private _topic: string;
-
-	public setTopic(topic: string){
-		this._topic = topic;
+	
+	public addBoard(topic: string, id: string){
+		var board: Board ={
+			topic: topic,
+			id: id
+		}
+		BOARDS.push(board);
+	}
+	
+	public getBoard(id: string): Board {
+		var board = BOARDS.find((brd, index) => {
+			if(brd.id === id){
+				return true;
+			}
+		});		
+		return board;
 	}
 
 	public getTopic(): String{
-		return this._topic;
+		return BOARDS[0].topic;
 	}
 
 	public getColumns(): BoardColumn[]{
@@ -18,43 +29,44 @@ export class RetroService {
 	}
 
 	public getMessages(key : string): Message[]{
-		var column = this._getColumnByKey(key);
-		return column.messages;
+		return this._getMessagedByColumn(key);
 	}
 
 	public addMessage(msgText: string, key: string){
-		var column = this._getColumnByKey(key);
 		var msg: Message = {
 			text : msgText,
-			key: Date.now()
+			column: key
 		};
-		if(column.messages.length < MESSAGES_PER_USER){
-			column.messages.push(msg);
-		}
+		MESSAGES.push(msg);
 	}
 
 	public removeMessage(msg: Message, key: string){
-		var column = this._getColumnByKey(key);
+		var messages = this._getMessagedByColumn(key);
 
-		var index = column.messages.indexOf(msg);
+		var index = messages.indexOf(msg);
 		if(index >= 0){
-			column.messages.splice(index, 1);
+			MESSAGES.splice(index, 1);
 		}
 	}
-
-	private _getColumnByKey(key: string){
-		var column = COLUMNS.find((col, index) => {
-			if(col.key === key){
+	
+	private _getMessagedByColumn(key: string){
+		var messages = MESSAGES.filter((msg, index) => {
+			if(msg.column === key){
 				return true;
 			}
 		});
-		return column;
+		return messages;
 	}
 }
 
 export interface Message{
-	text:string;
-	key: number;
+	text: string;
+	column: string;
+}
+
+export interface Board {
+	topic: string;
+	id: string;
 }
 
 export interface BoardColumn{
@@ -62,13 +74,14 @@ export interface BoardColumn{
 	icon:string;
 	title:string;
 	color:string;
-	messages: Message[];
 }
 
-const MESSAGES_PER_USER  = 5;
+export var BOARDS: Board[] = [];
 
 export var COLUMNS : BoardColumn[] = [
-	{ key: "1", icon : "mood", title: "What went well?", color: "green", messages: []},
-	{ key: "2", icon : "mood_bad", title: "What can be improved?", color: "red", messages: []},
-	{ key: "3", icon : "whatshot", title: "Actions", color: "yellow", messages: []}
+	{ key: "1", icon : "mood", title: "What went well?", color: "green"},
+	{ key: "2", icon : "mood_bad", title: "What can be improved?", color: "red"},
+	{ key: "3", icon : "whatshot", title: "Actions", color: "yellow"}
 ];
+
+export var MESSAGES : Message[] = [];

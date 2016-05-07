@@ -9,17 +9,15 @@ describe('RetroService', () => {
 	})
 
 	it('should return topic', () => {
-		service.setTopic("testTopic");
+		service.addBoard("testTopic", "1bfj");
 		expect(service.getTopic()).toBe("testTopic");
 	});
 
-	it('should return maximum five messages from board', () => {
+	it('should return message from board', () => {
 		var key = "1";
 		var msgText = "testMsg";
 
-		for(let i = 0; i < 10; i++){
-			service.addMessage(msgText, key);
-		}
-		expect(service.getMessages(key).length).toEqual(5);
+		service.addMessage(msgText, key);
+		expect(service.getMessages(key).length).toEqual(1);
 	})
 });
