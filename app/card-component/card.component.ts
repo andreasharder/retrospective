@@ -1,5 +1,5 @@
 import {Component, Input} from 'angular2/core';
-import {RetroService, Message} from '../services/retro.service';
+import {RetroService, Message} from '../services/retro/retro.service';
 
 @Component({
 	selector: 'message-card',
